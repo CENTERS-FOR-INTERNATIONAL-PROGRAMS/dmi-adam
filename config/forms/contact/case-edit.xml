@@ -17997,7 +17997,7 @@ Course</name>
       <bind nodeset="/data/case/outbreak_name" type="string" calculate="../../case/cases_group/outbreak_location/outbreak/name"/>
       <bind nodeset="/data/case/outbreak_code" type="string" calculate="../../case/cases_group/outbreak_location/outbreak/name"/>
       <bind nodeset="/data/case/outbreak_location_name" type="string" calculate="../../case/cases_group/outbreak_location/name"/>
-      <bind nodeset="/data/case/cases_group/_id" type="string" readonly="true()" calculate="../../parent"/>
+      <bind nodeset="/data/case/cases_group/_id" type="string" calculate="../../parent" readonly="true()"/>
       <bind nodeset="/data/case/cases_group/name" type="string"/>
       <bind nodeset="/data/case/cases_group/outbreak_location/_id" type="string"/>
       <bind nodeset="/data/case/cases_group/outbreak_location/name" type="string"/>
@@ -18015,7 +18015,7 @@ Course</name>
       <bind nodeset="/data/case/case_demographics/first_name" type="string" required="true()"/>
       <bind nodeset="/data/case/case_demographics/middle_name" type="string"/>
       <bind nodeset="/data/case/case_demographics/case_sex" type="select1" required="true()"/>
-      <bind nodeset="/data/case/case_demographics/date_of_birth" type="string" calculate="../ephemeral_dob/dob_iso" required="true()"/>
+      <bind nodeset="/data/case/case_demographics/date_of_birth" type="string" required="true()" calculate="../ephemeral_dob/dob_iso"/>
       <bind nodeset="/data/case/case_demographics/date_of_birth_method" type="string" calculate="../ephemeral_dob/dob_method"/>
       <bind nodeset="/data/case/case_demographics/ephemeral_dob/dob_method" type="select1" required="true()"/>
       <bind nodeset="/data/case/case_demographics/ephemeral_dob/dob_calendar" type="date" required="true()" relevant="selected( /data/case/case_demographics/ephemeral_dob/dob_method , 'yes')" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today()))"/>
@@ -18071,8 +18071,8 @@ Course</name>
       <bind nodeset="/data/case/case_kin/case_kin_relationship" type="select1"/>
       <bind nodeset="/data/case/meta/case_hh_title" readonly="true()" type="string"/>
       <bind nodeset="/data/case/meta/case_investigation_date" type="date" calculate="today()" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today()))"/>
-      <bind nodeset="/data/case/meta/created_by" type="string" readonly="true()" calculate="../../../inputs/user/name"/>
-      <bind nodeset="/data/case/meta/created_on" type="date" readonly="true()" calculate="today()"/>
+      <bind nodeset="/data/case/meta/created_by" type="string" calculate="../../../inputs/user/name" readonly="true()"/>
+      <bind nodeset="/data/case/meta/created_on" type="date" calculate="today()" readonly="true()"/>
       <bind nodeset="/data/case/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
       <bind nodeset="/data/case/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
