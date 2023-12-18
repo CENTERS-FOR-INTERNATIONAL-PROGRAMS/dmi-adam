@@ -1,0 +1,13 @@
+{
+  "title": "Case Outcome",
+  "icon": "icon-outcome-colored",
+  "context": {
+    "person": false,
+    "place": false,
+    "expression": "(contact.hierarchy_id === 'case') || (!contact)"
+  },
+  "hidden_fields": [
+    "patient_uuid",
+    "prerequisites"
+  ]
+}

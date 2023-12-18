@@ -1,0 +1,374 @@
+{
+    "languages": [
+        {
+            "locale": "en",
+            "enabled": true
+        }
+    ],
+    "place_hierarchy_types": [
+        "moh",
+        "health_unit",
+        "person",
+        "outbreak",
+        "outbreak_location",
+        "cases_group",
+        "case",
+        "case_contact"
+    ],
+    "contact_types": [
+        {
+            "id": "moh",
+            "name_key": "contact.type.health_unit",
+            "group_key": "contact.type.health_unit.plural",
+            "create_key": "contact.type.health_unit.new",
+            "edit_key": "contact.type.place.edit",
+            "icon": "icon-hospital-solid-gray",
+            "create_form": "form:contact:moh:create",
+            "edit_form": "form:contact:moh:edit"
+        },
+        {
+            "id": "health_unit",
+            "name_key": "contact.type.health_unit",
+            "group_key": "contact.type.health_unit.plural",
+            "create_key": "contact.type.health_unit.new",
+            "edit_key": "contact.type.place.edit",
+            "icon": "icon-hospital-solid-gray",
+            "parents": [
+                "moh"
+            ],
+            "create_form": "form:contact:health_unit:create",
+            "edit_form": "form:contact:health_unit:edit"
+        },
+        {
+            "id": "person",
+            "name_key": "contact.type.person",
+            "group_key": "contact.type.person.plural",
+            "create_key": "contact.type.person.new",
+            "edit_key": "contact.type.person.edit",
+            "parents": [
+                "health_unit",
+                "outbreak_location"
+            ],
+            "icon": "icon-user-outline-gray",
+            "create_form": "form:contact:person:create",
+            "edit_form": "form:contact:person:edit",
+            "person": true
+        },
+        {
+            "id": "outbreak",
+            "name_key": "contact.type.outbreak",
+            "group_key": "contact.type.outbreak.plural",
+            "create_key": "contact.type.outbreak.new",
+            "edit_key": "contact.type.outbreak.edit",
+            "parents": [
+                "health_unit"
+            ],
+            "icon": "icon-outbreak-colored",
+            "create_form": "form:contact:outbreak:create",
+            "edit_form": "form:contact:outbreak:edit"
+        },
+        {
+            "id": "outbreak_location",
+            "name_key": "contact.type.outbreak_location",
+            "group_key": "contact.type.outbreak_location.plural",
+            "create_key": "contact.type.outbreak_location.new",
+            "edit_key": "contact.type.outbreak_location.edit",
+            "parents": [
+                "outbreak"
+            ],
+            "icon": "icon-outbreak-location-colored",
+            "create_form": "form:contact:outbreak_location:create",
+            "edit_form": "form:contact:outbreak_location:edit"
+        },
+        {
+            "id": "cases_group",
+            "name_key": "contact.type.cases_group",
+            "group_key": "contact.type.cases_group.plural",
+            "create_key": "contact.type.cases_group.new",
+            "edit_key": "contact.type.cases_group.edit",
+            "parents": [
+                "outbreak_location"
+            ],
+            "icon": "icon-cases_group-colored",
+            "create_form": "form:contact:cases_group:create",
+            "edit_form": "form:contact:cases_group:edit",
+            "person": true
+        },
+        {
+            "id": "case",
+            "name_key": "contact.type.case",
+            "group_key": "contact.type.case.plural",
+            "create_key": "contact.type.case.new",
+            "edit_key": "contact.type.case.edit",
+            "parents": [
+                "cases_group"
+            ],
+            "icon": "icon-patient-colored",
+            "create_form": "form:contact:case:create",
+            "edit_form": "form:contact:case:edit",
+            "person": true
+        },
+        {
+            "id": "case_contact",
+            "name_key": "contact.type.case_contact",
+            "group_key": "contact.type.case_contact.plural",
+            "create_key": "contact.type.case_contact.new",
+            "edit_key": "contact.type.case_contact.edit",
+            "parents": [
+                "case"
+            ],
+            "icon": "icon-user-add-outline-blue",
+            "create_form": "form:contact:case_contact:create",
+            "edit_form": "form:contact:case_contact:edit",
+            "person": true
+        }
+    ],
+    "roles": {
+        "analytics": {
+            "name": "usertype.analytics"
+        },
+        "program_officer": {
+            "name": "usertype.program-officer"
+        },
+        "moh_user": {
+            "name": "MOH User"
+        },
+        "chw_supervisor": {
+            "name": "Health Care Worker Supervisor",
+            "offline": true
+        },
+        "chw": {
+            "name": "Health Care Worker",
+            "offline": true
+        }
+    },
+    "permissions": {
+        "can_modify_person": [
+            "moh_user"
+        ],
+        "can_modify_outbreak": [
+            "moh_user",
+            "chw_supervisor"
+        ],
+        "can_modify_outbreak_location": [
+            "moh_user",
+            "chw_supervisor"
+        ],
+        "can_modify_cases_group": [
+            "chw_supervisor"
+        ],
+        "can_access_gateway_api": [
+            "gateway"
+        ],
+        "can_bulk_delete_reports": [
+            "program_officer",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_configure": [
+            "program_officer",
+            "moh_user",
+            "crfo"
+        ],
+        "can_create_people": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_create_places": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_create_records": [
+            "program_officer",
+            "moh_user",
+            "data_entry",
+            "gateway",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_create_users": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor"
+        ],
+        "can_delete_contacts": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_delete_messages": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_delete_reports": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_delete_users": [
+            "program_officer",
+            "moh_user",
+            "moh_user",
+            "chw_supervisor"
+        ],
+        "can_edit": [
+            "gateway",
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_edit_profile": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_edit_verification": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_export_all": [
+            "program_officer",
+            "crfo"
+        ],
+        "can_export_contacts": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_export_feedback": [
+            "program_officer"
+        ],
+        "can_export_messages": [
+            "analytics",
+            "program_officer",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_log_out_on_android": [
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_update_places": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor"
+        ],
+        "can_update_reports": [
+            "program_officer",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_update_users": [
+            "moh_user",
+            "program_officer"
+        ],
+        "can_export_dhis": [
+            "national_admin",
+            "crfo"
+        ],
+        "can_verify_reports": [
+            "program_officer",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_analytics": [
+            "analytics",
+            "program_officer",
+            "can_view_users",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_analytics_tab": [
+            "program_officer",
+            "can_view_users",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_call_action": [
+            "program_officer",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_contacts": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_contacts_tab": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_last_visited_date": [],
+        "can_view_uhc_stats": [],
+        "can_view_message_action": [
+            "program_officer",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_messages": [],
+        "can_view_messages_tab": [],
+        "can_view_outgoing_messages": [
+            "program_officer"
+        ],
+        "can_view_reports": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_reports_tab": [
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_tasks": [
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_tasks_tab": [
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_tasks_group": [
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_unallocated_data_records": [
+            "gateway",
+            "program_officer",
+            "moh_user",
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_users": [
+            "program_officer",
+            "moh_user"
+        ],
+        "can_write_wealth_quintiles": [],
+        "can_aggregate_targets": [
+            "chw_supervisor"
+        ],
+        "can_upgrade": [
+            "program_officer"
+        ],
+        "can_view_old_filter_and_search": [],
+        "can_view_old_action_bar": []
+    }
+}

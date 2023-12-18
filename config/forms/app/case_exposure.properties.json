@@ -1,0 +1,11 @@
+{
+  "title": "Case Exposure",
+  "icon": "icon-exposure-colored",
+  "context": {
+    "expression": "(contact.hierarchy_id === 'case') || (!contact)"
+  },
+  "hidden_fields": [
+    "patient_uuid",
+    "prerequisites"
+  ]
+}
