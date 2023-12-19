@@ -16958,10 +16958,10 @@ Course</name>
       <bind nodeset="/case_hospitalization/ch_location/chl_facility" type="string" required="true()" relevant="selected( /case_hospitalization/ch_location/chl_type , 'health_facility')"/>
       <bind nodeset="/case_hospitalization/ch_location/chl_facility_other" type="string" required="true()" relevant="selected( /case_hospitalization/ch_location/chl_type , 'other')"/>
       <bind nodeset="/case_hospitalization/ch_admission/cha_admission" type="select1"/>
-      <bind nodeset="/case_hospitalization/ch_admission/cha_admission_date" type="date" relevant=" /case_hospitalization/ch_admission/cha_admission  = 'yes'" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today()))"/>
+      <bind nodeset="/case_hospitalization/ch_admission/cha_admission_date" type="date" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today()))" relevant=" /case_hospitalization/ch_admission/cha_admission  = 'yes'"/>
       <bind nodeset="/case_hospitalization/ch_admission/cha_admission_ward" type="select1" relevant=" /case_hospitalization/ch_admission/cha_admission  = 'yes'"/>
       <bind nodeset="/case_hospitalization/ch_admission/cha_admission_ward_other" type="string" relevant=" /case_hospitalization/ch_admission/cha_admission_ward  = 'other'"/>
-      <bind nodeset="/case_hospitalization/ch_admission/cha_visit_date" type="date" relevant=" /case_hospitalization/ch_admission/cha_admission  = 'no'" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today()))"/>
+      <bind nodeset="/case_hospitalization/ch_admission/cha_visit_date" type="date" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today()))" relevant=" /case_hospitalization/ch_admission/cha_admission  = 'no'"/>
       <bind nodeset="/case_hospitalization/ch_admission/cha_company_title" readonly="true()" type="string"/>
       <bind nodeset="/case_hospitalization/ch_admission/cha_company" type="select1"/>
       <bind nodeset="/case_hospitalization/ch_admission/cha_company_name" type="string" required="true()" relevant=" /case_hospitalization/ch_admission/cha_company  = 'yes'"/>
